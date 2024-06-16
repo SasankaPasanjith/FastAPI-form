@@ -28,7 +28,7 @@ This is a simple FastAPI application that presents a user details form and saves
 
     ```sh
     python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    venv\Scripts\activate
     ```
 
 3. Install the required packages:
