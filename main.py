@@ -38,7 +38,7 @@ async def get_form():
                 <input type="text" id="languages" name="languages"><br>
                 <label for="experience">Experience (years):</label><br>
                 <input type="number" id="experience" name="experience"><br>
-                <label for="annual_salary">Annual Salary:</label><br>
+                <label for="compensation">compensation:</label><br>
                 <input type="number" step="0.01" id="annual_salary" name="annual_salary"><br><br>
                 <button type="submit" name="action" value="accept">Accept</button>
                 <button type="submit" name="action" value="reject">Reject</button>
@@ -57,7 +57,7 @@ async def handle_form(
     phone_number: str = Form(...),
     languages: str = Form(...),
     experience: int = Form(...),
-    annual_salary: float = Form(...),
+    compensation: float = Form(...),
     action: str = Form(...),
     db: Session = Depends(get_db)
 ):
@@ -70,7 +70,7 @@ async def handle_form(
             phone_number=phone_number,
             languages=languages,
             experience=experience,
-            annual_salary=annual_salary,
+            compensation=compensation,
         )
         db.add(user)
         db.commit()
