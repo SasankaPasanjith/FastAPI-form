@@ -23,22 +23,32 @@ async def get_form():
         </head>
         <body>
             <h2>User Details Form</h2>
+            <p>Before we start, what is your name?</p>
             <form method="post" action="/submit">
                 <label for="first_name">First Name:</label><br>
                 <input type="text" id="first_name" name="first_name"><br>
                 <label for="last_name">Last Name:</label><br>
                 <input type="text" id="last_name" name="last_name"><br>
-                <label for="email">Email:</label><br>
+                <br>
+                <label for="email">What's your email address?</label><br>
                 <input type="email" id="email" name="email"><br>
-                <label for="country">Country:</label><br>
+                <br>
+                <label for="country">Which country you are from?</label><br>
                 <input type="text" id="country" name="country"><br>
-                <label for="phone_number">Phone Number:</label><br>
+                <br>
+                <label for="phone_number">What is your phone number?</label><br>
                 <input type="text" id="phone_number" name="phone_number"><br>
-                <label for="languages">Languages:</label><br>
+                <br>
+                <label for="languages">What languages and frameworks are you familiar with?</label><br>
                 <input type="text" id="languages" name="languages"><br>
-                <label for="experience">Experience (years):</label><br>
+                <br>
+                <label for="experience">How would you describe your current level of coding experience?</label><br>
                 <input type="number" id="experience" name="experience"><br>
-                <label for="compensation">compensation:</label><br>
+                <br>
+                <label for="annual_salary">What is your current annual compensation?</label><br>
+                <p>Disclaimer: The information provided regarding salary will be kept confidential and will not be used 
+                as a determining factor for acceptance into the bootcamp. It will be used exclusively 
+                for career advancement guidance.</p>
                 <input type="number" step="0.01" id="annual_salary" name="annual_salary"><br><br>
                 <button type="submit" name="action" value="accept">Accept</button>
                 <button type="submit" name="action" value="reject">Reject</button>
@@ -57,7 +67,7 @@ async def handle_form(
     phone_number: str = Form(...),
     languages: str = Form(...),
     experience: int = Form(...),
-    compensation: float = Form(...),
+    annual_salary: float = Form(...),
     action: str = Form(...),
     db: Session = Depends(get_db)
 ):
@@ -70,7 +80,7 @@ async def handle_form(
             phone_number=phone_number,
             languages=languages,
             experience=experience,
-            compensation=compensation,
+            annual_salary=annual_salary,
         )
         db.add(user)
         db.commit()
