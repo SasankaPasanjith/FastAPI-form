@@ -18,7 +18,7 @@ def get_db():
 async def get_form():
     return """
     <html>
-        <head>
+          <head>
             <title>User Details Form</title>
         </head>
         <body>
@@ -45,10 +45,7 @@ async def get_form():
                 <label for="experience">How would you describe your current level of coding experience?</label><br>
                 <input type="number" id="experience" name="experience"><br>
                 <br>
-                <label for="annual_salary">What is your current annual compensation?</label><br>
-                <p>Disclaimer: The information provided regarding salary will be kept confidential and will not be used 
-                as a determining factor for acceptance into the bootcamp. It will be used exclusively 
-                for career advancement guidance.</p>
+                <label for="annual_salary">Annual compensation?</label><br>
                 <input type="number" step="0.01" id="annual_salary" name="annual_salary"><br><br>
                 <button type="submit" name="action" value="accept">Accept</button>
                 <button type="submit" name="action" value="reject">Reject</button>

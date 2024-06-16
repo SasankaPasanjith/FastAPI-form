@@ -20,6 +20,6 @@ class User(Base):
     phone_number = Column(String, index=True)
     languages = Column(String)
     experience = Column(Integer)
-    compensation = Column(Float)
+    annual_salary = Column(Float)
 
 Base.metadata.create_all(bind=engine)
